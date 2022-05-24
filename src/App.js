@@ -9,6 +9,7 @@ import Header from "./Component/Shered/Header/Header";
 import ContactUs from "./Component/Pages/ContactUs/ContactUs";
 import Purchase from "./Component/Pages/Purchase/Purchase";
 import RequireAuth from "../src/Component/Shered/RequireAuth/RequireAuth";
+import Dashboard from "./Component/Pages/Dashboard/Dashboard";
 
 function App() {
   return (
@@ -27,6 +28,15 @@ function App() {
             </RequireAuth>
           }
         />
+
+        <Route
+          path="/dashboard"
+          element={
+            <RequireAuth>
+              <Dashboard />
+            </RequireAuth>
+          }
+        ></Route>
       </Routes>
       <ToastContainer />
     </div>
