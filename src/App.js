@@ -10,6 +10,9 @@ import ContactUs from "./Component/Pages/ContactUs/ContactUs";
 import Purchase from "./Component/Pages/Purchase/Purchase";
 import RequireAuth from "../src/Component/Shered/RequireAuth/RequireAuth";
 import Dashboard from "./Component/Pages/Dashboard/Dashboard";
+import MyOrder from "./Component/Pages/Dashboard/MyOrder";
+import AddReview from "./Component/Pages/Dashboard/AddReview";
+import MyProfile from "./Component/Pages/Dashboard/MyProfile";
 
 function App() {
   return (
@@ -36,7 +39,11 @@ function App() {
               <Dashboard />
             </RequireAuth>
           }
-        ></Route>
+        >
+          <Route index element={<MyOrder />}></Route>
+          <Route path="/dashboard/add_review" element={<AddReview />}></Route>
+          <Route path="/dashboard/my_profile" element={<MyProfile />}></Route>
+        </Route>
       </Routes>
       <ToastContainer />
     </div>
