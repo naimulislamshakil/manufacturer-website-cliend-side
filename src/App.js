@@ -8,6 +8,7 @@ import Register from "./Component/Pages/Register/Register";
 import Header from "./Component/Shered/Header/Header";
 import ContactUs from "./Component/Pages/ContactUs/ContactUs";
 import Purchase from "./Component/Pages/Purchase/Purchase";
+import RequireAuth from "../src/Component/Shered/RequireAuth/RequireAuth";
 
 function App() {
   return (
@@ -18,7 +19,14 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/contact_us" element={<ContactUs />} />
-        <Route path="/purchase/:id" element={<Purchase />} />
+        <Route
+          path="/purchase/:id"
+          element={
+            <RequireAuth>
+              <Purchase />
+            </RequireAuth>
+          }
+        />
       </Routes>
       <ToastContainer />
     </div>
