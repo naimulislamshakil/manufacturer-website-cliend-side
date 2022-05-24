@@ -1,10 +1,13 @@
 import React from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { useNavigate } from "react-router-dom";
 AOS.init();
 
 const Product = ({ product }) => {
+  const navigate = useNavigate();
   const {
+    _id,
     name,
     image,
     animation,
@@ -13,6 +16,10 @@ const Product = ({ product }) => {
     minimum_order,
     short_description,
   } = product;
+
+  const handelRedirectPurchasePage = (id) => {
+    navigate(`/purchase/${id}`);
+  };
 
   return (
     <div data-aos={animation}>
@@ -27,7 +34,12 @@ const Product = ({ product }) => {
           <p>Available Quantity: {available_quantity}</p>
           <p>{short_description.slice(0, 200)}</p>
           <div class="card-actions justify-start m-5">
-            <button class="btn btn-primary">Buy Now</button>
+            <button
+              onClick={() => handelRedirectPurchasePage(_id)}
+              class="btn btn-primary"
+            >
+              Buy Now
+            </button>
           </div>
         </div>
       </div>

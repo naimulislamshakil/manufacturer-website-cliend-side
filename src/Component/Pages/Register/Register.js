@@ -62,7 +62,7 @@ const Register = () => {
           <input
             placeholder="Enter Your Email."
             className="w-full mb-3 px-4 py-2 mt-2 border rounded-xl focus:outline-none focus:ring-1 focus:text-secondary text-accent"
-            type="email"
+            type="text"
             {...register("name", {
               required: {
                 value: true,

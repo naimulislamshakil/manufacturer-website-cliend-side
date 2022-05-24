@@ -1,7 +1,20 @@
+import { signOut } from "firebase/auth";
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
+import auth from "../../../firebase.config";
+import Loading from "../Loading/Loading";
 
 const Header = () => {
+  const [user, loading2] = useAuthState(auth);
+
+  const logout = () => {
+    signOut(auth);
+  };
+
+  if (loading2) {
+    return <Loading></Loading>;
+  }
   const navbarLink = (
     <>
       <li>
@@ -14,16 +27,26 @@ const Header = () => {
           ContactUs
         </Link>
       </li>
-      <li>
-        <Link className="font-bold hover:bg-primary" to="/login">
-          LogIn
-        </Link>
-      </li>
-      <li>
-        <Link className="font-bold hover:bg-primary" to="/register">
-          Register
-        </Link>
-      </li>
+      {user ? (
+        <li>
+          <button className="font-bold hover:bg-primary" onClick={logout}>
+            Logout
+          </button>
+        </li>
+      ) : (
+        <>
+          <li>
+            <Link className="font-bold hover:bg-primary" to="/login">
+              LogIn
+            </Link>
+          </li>
+          <li>
+            <Link className="font-bold hover:bg-primary" to="/register">
+              Register
+            </Link>
+          </li>
+        </>
+      )}
     </>
   );
   return (
