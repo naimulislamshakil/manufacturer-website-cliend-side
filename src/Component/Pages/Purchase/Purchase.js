@@ -32,6 +32,7 @@ const Purchase = () => {
       email: email,
       address: address,
       number: number,
+      status: "unpaid",
       totalPrice: totalPrice,
     };
 
