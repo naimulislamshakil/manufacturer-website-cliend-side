@@ -8,8 +8,7 @@ const AddReview = () => {
   const [user] = useAuthState(auth);
   const [star, setStar] = useState(0);
   const [text, setText] = useState("");
-  // const rating = [1, 2, 3, 4, 5];
-  // const num = 2;
+
   const hendelPost = (event) => {
     event.preventDefault();
     const name = user?.displayName;
@@ -64,12 +63,6 @@ const AddReview = () => {
           value="POST"
         ></input>
       </form>
-
-      {/* <div class="rating rating-sm">
-        {rating.map((r, i) => (
-          <Rating i={i} num={num}></Rating>
-        ))} */}
-      {/* </div> */}
     </div>
   );
 };

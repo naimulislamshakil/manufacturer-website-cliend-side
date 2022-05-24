@@ -5,8 +5,8 @@ const Rating = ({ i, num }) => {
     <input
       type="radio"
       name="rating-6"
-      class="mask mask-star-2  bg-orange-400"
-      checked={i < num}
+      class={`mask mask-star-2  ${i < num ? "bg-orange-400" : ""}`}
+      //   checked={i < num}
     />
   );
 };
