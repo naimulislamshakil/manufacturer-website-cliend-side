@@ -1,15 +1,41 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import SocialMedia from "../../Shered/SocialMedia/SocialMedia";
+import auth from "../../../firebase.config";
+import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import Loading from "../../Shered/Loading/Loading";
+import { toast } from "react-toastify";
 
 const Login = () => {
+  const [signInWithEmailAndPassword, user, loading, error] =
+    useSignInWithEmailAndPassword(auth);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || "/";
   const {
     register,
     formState: { errors },
     handleSubmit,
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    const email = data.email;
+    const password = data.password;
+    signInWithEmailAndPassword(email, password);
+  };
+
+  if (loading) {
+    return <Loading></Loading>;
+  }
+
+  if (error) {
+    toast.error(error?.message);
+  }
+
+  if (user) {
+    navigate(from, { replace: true });
+  }
   return (
     <div className="flex items-center justify-center  min-h-screen bg-gray-100">
       <div className="px-8 py-6 mt-4 text-left bg-white shadow-2xl w-2/4">
