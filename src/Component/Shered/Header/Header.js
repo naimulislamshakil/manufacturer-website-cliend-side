@@ -12,9 +12,6 @@ const Header = () => {
     signOut(auth);
   };
 
-  if (loading2) {
-    return <Loading></Loading>;
-  }
   const navbarLink = (
     <>
       <li>

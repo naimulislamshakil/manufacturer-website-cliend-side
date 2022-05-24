@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 const useProductDetail = (id) => {
   const [service, setService] = useState({});
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     const url = `http://localhost:5000/id_product/${id}`;
     fetch(url)
