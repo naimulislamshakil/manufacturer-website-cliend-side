@@ -37,20 +37,32 @@ const Purchase = () => {
 
     if (quantity < minimum_order) {
       toast.error(`Less Then ${minimum_order}`);
-    } else if (quantity > available_quantity) {
+    } else if (quantity < available_quantity) {
       toast.error(`Sorry! We Do Not Have Over ${available_quantity}`);
     } else {
-      fetch();
+      fetch("http://localhost:5000/order", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(orderDetails),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.acknowledged) {
+            toast.success("Congratulations! Order Place.");
+          }
+        });
     }
+
+    event.target.reset();
   };
 
   return (
-    <div class="flex items-center justify-center min-h-screen bg-gray-200">
-      <div class="w-full px-6 py-16 bg-white rounded-lg shadow-2xl lg:w-2/5">
-        <h2 class="mb-4 text-xl antialiased font-bold text-accent text-center ">
+    <div className="flex items-center justify-center min-h-screen bg-gray-200">
+      <div className="w-full px-6 py-16 bg-white rounded-lg shadow-2xl lg:w-2/5 my-10">
+        <h2 className="mb-4 text-xl antialiased font-bold text-accent text-center ">
           Place Order For: {name}
         </h2>
-        <form onSubmit={purchaseHandel} class="mx-8 space-y-8">
+        <form onSubmit={purchaseHandel} className="mx-8 space-y-8">
           <div>
             <label
               className="block mb-2 text-sm font-bold text-gray-700"
@@ -61,7 +73,7 @@ const Purchase = () => {
             <input
               type="text"
               value={user?.displayName}
-              class="w-full p-2 text-md border-b-2 border-gray-400 outline-none opacity-50 focus:border-blue-400"
+              className="w-full p-2 text-md border-b-2 border-gray-400 outline-none opacity-50 focus:border-blue-400"
               placeholder="Full Name"
               required
               readOnly
@@ -78,7 +90,7 @@ const Purchase = () => {
             <input
               type="email"
               value={user?.email}
-              class="w-full p-2 text-md border-b-2 border-gray-400 outline-none opacity-50 focus:border-blue-400"
+              className="w-full p-2 text-md border-b-2 border-gray-400 outline-none opacity-50 focus:border-blue-400"
               placeholder="Full Name"
               required
               readOnly
@@ -95,7 +107,7 @@ const Purchase = () => {
             <input
               type="text"
               value={name}
-              class="w-full p-2 text-md border-b-2 border-gray-400 outline-none opacity-50 focus:border-blue-400"
+              className="w-full p-2 text-md border-b-2 border-gray-400 outline-none opacity-50 focus:border-blue-400"
               placeholder="Full Name"
               required
               readOnly
@@ -113,7 +125,7 @@ const Purchase = () => {
               type="number"
               name="quantity"
               onBlur={(event) => setQuantity(event.target.value)}
-              class="w-full p-2 text-md border-b-2 border-gray-400 outline-none opacity-50 focus:border-blue-400"
+              className="w-full p-2 text-md border-b-2 border-gray-400 outline-none opacity-50 focus:border-blue-400"
               placeholder={`Min Order ${minimum_order}`}
               required
             />
@@ -129,7 +141,7 @@ const Purchase = () => {
               type="text"
               name="address"
               onBlur={(event) => setAddress(event.target.value)}
-              class="w-full p-2 text-md border-b-2 border-gray-400 outline-none opacity-50 focus:border-blue-400"
+              className="w-full p-2 text-md border-b-2 border-gray-400 outline-none opacity-50 focus:border-blue-400"
               placeholder="Enter Your Address."
             />
           </div>
@@ -144,7 +156,7 @@ const Purchase = () => {
               type="number"
               name="number"
               onBlur={(event) => setNumber(event.target.value)}
-              class="w-full p-2 text-md border-b-2 border-gray-400 outline-none opacity-50 focus:border-blue-400 text-accent"
+              className="w-full p-2 text-md border-b-2 border-gray-400 outline-none opacity-50 focus:border-blue-400 text-accent"
               placeholder="Enter Your Phone Number"
             />
           </div>

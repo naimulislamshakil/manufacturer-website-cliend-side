@@ -23,20 +23,20 @@ const Product = ({ product }) => {
 
   return (
     <div data-aos={animation}>
-      <div class="card card-compact w-96 bg-base-100 transition ease-in-out delay-150  hover:translate-y-6 ml-2 my-9  hover:scale-100  duration-300 shadow-2xl">
+      <div className="card card-compact w-96 bg-base-100 transition ease-in-out delay-150  hover:translate-y-6 ml-2 my-9  hover:scale-100  duration-300 shadow-2xl">
         <figure>
           <img src={image} alt="" />
         </figure>
-        <div class="card-body">
-          <h2 class="card-title">{name}</h2>
+        <div className="card-body">
+          <h2 className="card-title">{name}</h2>
           <p className="text-lg">Price: ${price} (per unit)</p>
           <p>Minimum Order: {minimum_order}</p>
           <p>Available Quantity: {available_quantity}</p>
           <p>{short_description.slice(0, 200)}</p>
-          <div class="card-actions justify-start m-5">
+          <div className="card-actions justify-start m-5">
             <button
               onClick={() => handelRedirectPurchasePage(_id)}
-              class="btn btn-primary"
+              className="btn btn-primary"
             >
               Buy Now
             </button>

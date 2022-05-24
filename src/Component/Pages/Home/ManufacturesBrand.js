@@ -11,11 +11,11 @@ import ibm from "../../../assect/Coustomer/manufacturer_IBM_lenovo.gif";
 const ManufacturesBrand = () => {
   return (
     <div className="my-5 w-full mx-auto">
-      <div class="divider"></div>
+      <div className="divider"></div>
       <h2 className="text-2xl font-bold text-center text-accent my-5">
         Top Coustomer Laptop Brands
       </h2>
-      <div class="divider"></div>
+      <div className="divider"></div>
       <div className="grid lg:grid-cols-8 md:grid-cols-4 grid-cols-3">
         <img src={apple} alt="" />
         <img src={dell} alt="" />

@@ -13,11 +13,11 @@ const Products = () => {
   }
   return (
     <div>
-      <div class="divider"></div>
+      <div className="divider"></div>
       <div className="text-center font-bold text-accent text-2xl">
         Our Populler Products
       </div>
-      <div class="divider"></div>
+      <div className="divider"></div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-5">
         {products.map((product) => (
           <Product key={product._id} product={product}></Product>
