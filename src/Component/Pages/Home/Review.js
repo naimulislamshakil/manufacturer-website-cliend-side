@@ -1,5 +1,10 @@
 import React, { useEffect, useState } from "react";
 import ReviewCard from "./ReviewCard";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import { Navigation } from "swiper";
+import "swiper/css/navigation";
+import "./Review.css";
 
 const Review = () => {
   const [reviews, setReview] = useState([]);
@@ -15,11 +20,16 @@ const Review = () => {
         Our Client Review
       </div>
       <div className="divider"></div>
-      <div className="ml-3 grid grid-cols-1 lg:grid-cols-3 gap-3">
-        {reviews.map((review) => (
-          <ReviewCard key={review._id} review={review}></ReviewCard>
-        ))}
-      </div>
+
+      <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
+        <div className="ml-5 grid grid-cols-1 lg:grid-cols-3 gap-3">
+          {reviews.map((review) => (
+            <SwiperSlide>
+              <ReviewCard key={review._id} review={review}></ReviewCard>
+            </SwiperSlide>
+          ))}
+        </div>
+      </Swiper>
     </div>
   );
 };

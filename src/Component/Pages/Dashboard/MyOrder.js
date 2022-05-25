@@ -15,11 +15,14 @@ const MyOrder = () => {
   }, [user]);
 
   return (
-    <div class="overflow-x-auto">
-      <table class="table table-zebra w-full">
+    <div class="overflow-x-auto my-5">
+      <h2 className="text-center text-xl font-bold text-purple-500 mb-5">
+        My Order
+      </h2>
+      <table class="table-zebra w-full  table-auto">
         {/* <!-- head --> */}
         <thead>
-          <tr>
+          <tr className="mt-5">
             <th className="text-sm font-bold text-center uppercase">NO.</th>
             <th className="text-sm font-bold text-center uppercase">Name</th>
             <th className="text-sm font-bold text-center uppercase">Details</th>
@@ -29,7 +32,7 @@ const MyOrder = () => {
         </thead>
         <tbody>
           {orders.map((order, index) => (
-            <tr>
+            <tr className="mt-5">
               <th>{index + 1}</th>
               <td>{order?.name}</td>
               <td>

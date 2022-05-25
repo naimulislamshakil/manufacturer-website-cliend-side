@@ -6,7 +6,7 @@ const ReviewCard = ({ review }) => {
   const rating = [1, 2, 3, 4, 5];
   const num = star;
   return (
-    <div class="card w-96 bg-base-100 shadow-xl">
+    <div class="card w-96 bg-base-100 shadow-2xl my-6">
       <div class="card-body">
         <h2 class="card-title">{name}</h2>
         <div class="rating rating-sm">

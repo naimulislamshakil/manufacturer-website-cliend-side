@@ -25,7 +25,7 @@ const OrderDetails = () => {
       <h2 className="text-center text-xl text-purple-500 font-bold my-6">
         Order Detail for {name}
       </h2>
-      <table class="table table-zebra lg:w-full sm:w-screen-sm">
+      <table class="table-zebra w-full  table-auto">
         <thead>
           <tr>
             <th className="text-sm font-bold text-center uppercase">mame</th>
