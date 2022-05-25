@@ -68,7 +68,7 @@ const Purchase = () => {
           <div>
             <label
               className="block mb-2 text-sm font-bold text-gray-700"
-              htmlhtmlFor="email"
+              htmlFor="email"
             >
               Name
             </label>
@@ -85,7 +85,7 @@ const Purchase = () => {
           <div>
             <label
               className="block mb-2 text-sm font-bold text-gray-700"
-              htmlhtmlFor="email"
+              htmlFor="email"
             >
               Email
             </label>
@@ -102,7 +102,7 @@ const Purchase = () => {
           <div>
             <label
               className="block mb-2 text-sm font-bold text-gray-700"
-              htmlhtmlFor="email"
+              htmlFor="email"
             >
               Product Name
             </label>
@@ -119,7 +119,7 @@ const Purchase = () => {
           <div>
             <label
               className="block mb-2 text-sm font-bold text-gray-700"
-              htmlhtmlFor="email"
+              htmlFor="email"
             >
               Quantity
             </label>
@@ -135,7 +135,7 @@ const Purchase = () => {
           <div>
             <label
               className="block mb-2 text-sm font-bold text-gray-700"
-              htmlhtmlFor="email"
+              htmlFor="email"
             >
               Address
             </label>
@@ -150,7 +150,7 @@ const Purchase = () => {
           <div>
             <label
               className="block mb-2 text-sm font-bold text-gray-700"
-              htmlhtmlFor="email"
+              htmlFor="email"
             >
               Phone Number
             </label>

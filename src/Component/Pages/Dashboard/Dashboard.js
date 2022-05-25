@@ -65,7 +65,14 @@ const Dashboard = () => {
                   Add A Product
                 </Link>
               </li>
-
+              <li>
+                <Link
+                  className="w-full btn btn-outline rounded-full mt-3"
+                  to="/dashboard/all_user"
+                >
+                  Make Admin
+                </Link>
+              </li>
               <li>
                 <Link
                   className="w-full btn btn-outline rounded-full mt-3"
@@ -76,14 +83,7 @@ const Dashboard = () => {
               </li>
             </>
           )}
-          <li>
-            <Link
-              className="w-full btn btn-outline rounded-full mt-3"
-              to="/dashboard/all_user"
-            >
-              Make Admin
-            </Link>
-          </li>
+
           <li>
             <Link
               className="w-full btn btn-outline rounded-full mt-3 shadow-xl"

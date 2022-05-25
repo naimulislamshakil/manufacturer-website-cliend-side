@@ -6,7 +6,6 @@ const useToken = (users) => {
     const email = users?.user?.email;
     const user = {
       email: email,
-      role: "",
     };
 
     if (email) {
