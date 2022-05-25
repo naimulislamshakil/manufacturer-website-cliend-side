@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 import auth from "../../../firebase.config";
 
 const MyOrder = () => {
@@ -13,6 +14,25 @@ const MyOrder = () => {
       .then((res) => res.json())
       .then((data) => setOrder(data));
   }, [user]);
+
+  // using handelDelete delete a order from mongodb
+  const handelDelete = (id) => {
+    const confirm = window.confirm("Are You Sure To Delete It!");
+
+    if (confirm) {
+      const url = `http://localhost:5000/delete/${id}`;
+      fetch(url, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.acknowledged) {
+            window.location.reload(false);
+            toast.success("Delete Successfull!");
+          }
+        });
+    }
+  };
 
   return (
     <div class="overflow-x-auto my-5">
@@ -32,7 +52,7 @@ const MyOrder = () => {
         </thead>
         <tbody>
           {orders.map((order, index) => (
-            <tr className="mt-5">
+            <tr key={index} className="mt-5">
               <th>{index + 1}</th>
               <td>{order?.name}</td>
               <td>
@@ -45,7 +65,12 @@ const MyOrder = () => {
               </td>
               <td>
                 {order?.status === "unpaid" && (
-                  <button class="btn btn-outline btn-error">Delete</button>
+                  <button
+                    onClick={() => handelDelete(order._id)}
+                    class="btn btn-outline btn-error"
+                  >
+                    Delete
+                  </button>
                 )}
               </td>
               <td>

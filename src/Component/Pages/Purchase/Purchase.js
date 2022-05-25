@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import auth from "../../../firebase.config";
@@ -13,6 +14,7 @@ const Purchase = () => {
   const [number, setNumber] = useState(0);
   const [service, loading] = useProductDetail(id);
   const [user, loading2] = useAuthState(auth);
+  const navigate = useNavigate();
 
   if (loading || loading2) {
     return <Loading></Loading>;
@@ -36,11 +38,7 @@ const Purchase = () => {
       totalPrice: totalPrice,
     };
 
-    if (quantity < minimum_order) {
-      toast.error(`Less Then ${minimum_order}`);
-    } else if (quantity < available_quantity) {
-      toast.error(`Sorry! We Do Not Have Over ${available_quantity}`);
-    } else {
+    if (quantity > minimum_order || quantity > available_quantity) {
       fetch("http://localhost:5000/order", {
         method: "POST",
         headers: { "content-type": "application/json" },
@@ -50,8 +48,11 @@ const Purchase = () => {
         .then((data) => {
           if (data.acknowledged) {
             toast.success("Congratulations! Order Place.");
+            navigate("/");
           }
         });
+    } else {
+      toast.error(`Sorry! We Do Not Have Over ${available_quantity}`);
     }
 
     event.target.reset();
@@ -154,7 +155,7 @@ const Purchase = () => {
               Phone Number
             </label>
             <input
-              type="number"
+              type="text"
               name="number"
               onBlur={(event) => setNumber(event.target.value)}
               className="w-full p-2 text-md border-b-2 border-gray-400 outline-none opacity-50 focus:border-blue-400 text-accent"

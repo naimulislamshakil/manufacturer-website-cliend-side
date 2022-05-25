@@ -21,7 +21,12 @@ const Review = () => {
       </div>
       <div className="divider"></div>
 
-      <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
+      <Swiper
+        navigation={true}
+        modules={[Navigation]}
+        className="mySwiper"
+        slidesPerView={3}
+      >
         <div className="ml-5 grid grid-cols-1 lg:grid-cols-3 gap-3">
           {reviews.map((review) => (
             <SwiperSlide>
