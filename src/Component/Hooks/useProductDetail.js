@@ -5,7 +5,12 @@ const useProductDetail = (id) => {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     const url = `http://localhost:5000/id_product/${id}`;
-    fetch(url)
+    fetch(url, {
+      method: "GET",
+      headers: {
+        authorization: `Berar ${localStorage.getItem("accessToken")}`,
+      },
+    })
       .then((res) => res.json())
       .then((data) => {
         setService(data);

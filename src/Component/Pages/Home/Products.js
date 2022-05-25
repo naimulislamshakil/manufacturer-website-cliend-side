@@ -5,7 +5,12 @@ import Product from "./Product";
 
 const Products = () => {
   const { data: products, isLoading } = useQuery("product", () =>
-    fetch("http://localhost:5000/product").then((res) => res.json())
+    fetch("http://localhost:5000/product", {
+      method: "GET",
+      headers: {
+        authorization: `Berar ${localStorage.getItem("accessToken")}`,
+      },
+    }).then((res) => res.json())
   );
 
   if (isLoading) {
