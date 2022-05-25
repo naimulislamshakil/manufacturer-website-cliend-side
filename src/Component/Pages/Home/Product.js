@@ -30,8 +30,8 @@ const Product = ({ product }) => {
         <div className="card-body">
           <h2 className="card-title">{name}</h2>
           <p className="text-lg">Price: ${price} (per unit)</p>
-          <p>Minimum Order: {minimum_order}</p>
-          <p>Available Quantity: {available_quantity}</p>
+          <p>Minimum Order: ${minimum_order} Pices</p>
+          <p>Available Quantity: ${available_quantity} Pices</p>
           <p>{short_description.slice(0, 200)}</p>
           <div className="card-actions justify-start m-5">
             <button

@@ -38,7 +38,7 @@ const Purchase = () => {
       totalPrice: totalPrice,
     };
 
-    if (quantity > minimum_order || quantity > available_quantity) {
+    if (minimum_order <= quantity <= available_quantity) {
       fetch("http://localhost:5000/order", {
         method: "POST",
         headers: { "content-type": "application/json" },
@@ -128,7 +128,7 @@ const Purchase = () => {
               name="quantity"
               onBlur={(event) => setQuantity(event.target.value)}
               className="w-full p-2 text-md border-b-2 border-gray-400 outline-none opacity-50 focus:border-blue-400"
-              placeholder={`Min Order ${minimum_order}`}
+              placeholder={`Min Order ${minimum_order} Pices`}
               required
             />
           </div>
