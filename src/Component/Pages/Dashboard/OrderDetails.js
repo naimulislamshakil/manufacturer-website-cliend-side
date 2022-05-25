@@ -21,11 +21,11 @@ const OrderDetails = () => {
     quantity,
   } = order;
   return (
-    <div class="overflow-x-auto ">
+    <div className="overflow-x-auto ">
       <h2 className="text-center text-xl text-purple-500 font-bold my-6">
         Order Detail for {name}
       </h2>
-      <table class="table-zebra w-full  table-auto">
+      <table className="table-zebra w-full  table-auto">
         <thead>
           <tr>
             <th className="text-sm font-bold text-center uppercase">mame</th>
@@ -91,11 +91,11 @@ const OrderDetails = () => {
             </th>
             <td className="text-sm font-bold text-center sm:w-3/4">
               {status === "unpaid" ? (
-                <button disabled class="btn btn-outline btn-error">
+                <button disabled className="btn btn-outline btn-error">
                   UNPAID
                 </button>
               ) : (
-                <button disabled class="btn btn-outline btn-success">
+                <button disabled className="btn btn-outline btn-success">
                   PAID
                 </button>
               )}

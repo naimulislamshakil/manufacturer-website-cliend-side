@@ -23,7 +23,7 @@ const Products = () => {
         Our Populler Products
       </div>
       <div className="divider"></div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 my-5">
         {products.map((product) => (
           <Product key={product._id} product={product}></Product>
         ))}

@@ -47,7 +47,7 @@ const Login = () => {
         <form onSubmit={handleSubmit(onSubmit)}>
           <label
             className="block mb-2 text-sm font-bold text-gray-700 ml-3"
-            htmlFor="email"
+            htmlhtmlFor="email"
           >
             Email
           </label>
@@ -80,7 +80,7 @@ const Login = () => {
           </label>
           <label
             className="block mb-2 text-sm font-bold text-gray-700 ml-3"
-            htmlFor="Password"
+            htmlhtmlFor="Password"
           >
             Password
           </label>

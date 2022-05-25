@@ -35,11 +35,11 @@ const MyOrder = () => {
   };
 
   return (
-    <div class="overflow-x-auto my-5">
+    <div className="overflow-x-auto my-5">
       <h2 className="text-center text-xl font-bold text-purple-500 mb-5">
         My Order
       </h2>
-      <table class="table-zebra w-full  table-auto">
+      <table className="table-zebra w-full  table-auto">
         {/* <!-- head --> */}
         <thead>
           <tr className="mt-5">
@@ -58,7 +58,7 @@ const MyOrder = () => {
               <td>
                 <Link
                   to={`/dashboard/${order._id}`}
-                  class="btn btn-outline btn-info"
+                  className="btn btn-outline btn-info"
                 >
                   View Details
                 </Link>
@@ -67,7 +67,7 @@ const MyOrder = () => {
                 {order?.status === "unpaid" && (
                   <button
                     onClick={() => handelDelete(order._id)}
-                    class="btn btn-outline btn-error"
+                    className="btn btn-outline btn-error"
                   >
                     Delete
                   </button>
@@ -75,7 +75,7 @@ const MyOrder = () => {
               </td>
               <td>
                 {order?.status === "unpaid" && (
-                  <button class="btn btn-outline btn-success">PAY</button>
+                  <button className="btn btn-outline btn-success">PAY</button>
                 )}
               </td>
             </tr>

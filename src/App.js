@@ -14,6 +14,7 @@ import MyOrder from "./Component/Pages/Dashboard/MyOrder";
 import AddReview from "./Component/Pages/Dashboard/AddReview";
 import MyProfile from "./Component/Pages/Dashboard/MyProfile";
 import OrderDetails from "./Component/Pages/Dashboard/OrderDetails";
+import AllUser from "./Component/Pages/Dashboard/AllUsers";
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
           <Route path="/dashboard/:id" element={<OrderDetails />}></Route>
           <Route path="/dashboard/add_review" element={<AddReview />}></Route>
           <Route path="/dashboard/my_profile" element={<MyProfile />}></Route>
+          <Route path="/dashboard/all_user" element={<AllUser />}></Route>
         </Route>
       </Routes>
       <ToastContainer />

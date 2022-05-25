@@ -57,7 +57,7 @@ const Register = () => {
         <form onSubmit={handleSubmit(onSubmit)}>
           <label
             className="block mb-2 text-sm font-bold text-gray-700 ml-3"
-            htmlFor="email"
+            htmlhtmlFor="email"
           >
             Name
           </label>
@@ -74,7 +74,7 @@ const Register = () => {
           />
           <label
             className="block mb-2 text-sm font-bold text-gray-700 ml-3"
-            htmlFor="email"
+            htmlhtmlFor="email"
           >
             Email
           </label>
@@ -107,7 +107,7 @@ const Register = () => {
           </label>
           <label
             className="block mb-2 text-sm font-bold text-gray-700 ml-3"
-            htmlFor="password"
+            htmlhtmlFor="password"
           >
             Password
           </label>

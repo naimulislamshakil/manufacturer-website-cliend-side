@@ -5,7 +5,7 @@ import banner3 from "../../../assect/Banner/banner (3).jpg";
 
 const Banner = () => {
   return (
-    <div className="hero min-h-screen">
+    <div className=" min-h-screen">
       <div className="hero-content flex-col lg:flex-row-reverse">
         <div className="carousel w-full">
           <div id="slide1" className="carousel-item relative w-full">
