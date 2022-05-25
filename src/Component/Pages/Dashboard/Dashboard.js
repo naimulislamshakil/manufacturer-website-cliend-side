@@ -62,7 +62,7 @@ const Dashboard = () => {
                   className="w-full btn btn-outline rounded-full mt-3"
                   to="/dashboard "
                 >
-                  My Orders
+                  Manage All Orders
                 </Link>
               </li>
               <li>
@@ -70,7 +70,23 @@ const Dashboard = () => {
                   className="w-full btn btn-outline rounded-full mt-3"
                   to="/dashboard/add_review"
                 >
-                  Add A Review
+                  Add A Product
+                </Link>
+              </li>
+              <li>
+                <Link
+                  className="w-full btn btn-outline rounded-full mt-3"
+                  to="/dashboard/add_review"
+                >
+                  Make Admin
+                </Link>
+              </li>
+              <li>
+                <Link
+                  className="w-full btn btn-outline rounded-full mt-3"
+                  to="/dashboard/add_review"
+                >
+                  Manage Products
                 </Link>
               </li>
             </>
