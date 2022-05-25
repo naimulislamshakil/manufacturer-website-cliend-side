@@ -8,6 +8,7 @@ const Header = () => {
   const [user] = useAuthState(auth);
 
   const logout = () => {
+    localStorage.removeItem("accessToken");
     signOut(auth);
   };
 

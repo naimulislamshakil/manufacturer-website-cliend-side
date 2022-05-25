@@ -6,12 +6,14 @@ import auth from "../../../firebase.config";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import Loading from "../../Shered/Loading/Loading";
 import { toast } from "react-toastify";
+import useToken from "../../Hooks/useToken";
 
 const Login = () => {
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
   const navigate = useNavigate();
   const location = useLocation();
+  const [token] = useToken(user);
 
   const from = location.state?.from?.pathname || "/";
   const {
@@ -33,7 +35,7 @@ const Login = () => {
     toast.error(error?.message);
   }
 
-  if (user) {
+  if (token) {
     navigate(from, { replace: true });
   }
   return (

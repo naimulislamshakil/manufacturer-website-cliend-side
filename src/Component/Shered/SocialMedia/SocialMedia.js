@@ -7,6 +7,7 @@ import {
 import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import auth from "../../../firebase.config";
+import useToken from "../../Hooks/useToken";
 import Loading from "../Loading/Loading";
 
 const SocialMedia = () => {
@@ -16,6 +17,7 @@ const SocialMedia = () => {
   const [signInWithGithub, huser, hloading, herror] = useSignInWithGithub(auth);
   const navigate = useNavigate();
   const location = useLocation();
+  const [token] = useToken(guser || fuser || huser);
 
   const from = location.state?.from?.pathname || "/";
 
@@ -27,7 +29,7 @@ const SocialMedia = () => {
     toast.error(gerror?.message || ferror?.message || herror?.message);
   }
 
-  if (guser || fuser || huser) {
+  if (token) {
     navigate(from, { replace: true });
   }
   return (

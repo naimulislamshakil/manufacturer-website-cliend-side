@@ -9,6 +9,7 @@ import {
 import Loading from "../../Shered/Loading/Loading";
 import { toast } from "react-toastify";
 import auth from "../../../firebase.config";
+import useToken from "../../Hooks/useToken";
 
 const Register = () => {
   const {
@@ -22,6 +23,7 @@ const Register = () => {
   const [agree, setAgree] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
+  const [token] = useToken(user);
 
   const from = location.state?.from?.pathname || "/";
 
@@ -33,7 +35,7 @@ const Register = () => {
     toast(error?.message || uerror?.message);
   }
 
-  if (user) {
+  if (token) {
     navigate(from, { replace: true });
   }
 
@@ -41,20 +43,6 @@ const Register = () => {
     const email = data.email;
     const password = data.password;
     const name = data.name;
-
-    const user = {
-      email: email,
-      name: name,
-      role: "",
-    };
-
-    fetch(`http://localhost:5000/user/${email}`, {
-      method: "PUT",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify(user),
-    })
-      .then((res) => res.json())
-      .then((data) => console.log(data));
 
     await createUserWithEmailAndPassword(email, password);
     await updateProfile(name);
