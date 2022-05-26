@@ -9,7 +9,7 @@ import "./Review.css";
 const Review = () => {
   const [reviews, setReview] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/review")
+    fetch("https://frozen-brushlands-71944.herokuapp.com/review")
       .then((res) => res.json())
       .then((data) => setReview(data));
   }, []);

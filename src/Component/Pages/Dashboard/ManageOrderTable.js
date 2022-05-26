@@ -7,7 +7,7 @@ const ManageOrderTable = ({ order, index }) => {
   const handelDelete = (id) => {
     const confirm = window.confirm("Are you sure delete it?");
     if (confirm) {
-      fetch(`http://localhost:5000/manage/${id}`, {
+      fetch(`https://frozen-brushlands-71944.herokuapp.com/manage/${id}`, {
         method: "DELETE",
         headers: {
           authorization: `Berar ${localStorage.getItem("accessToken")}`,
@@ -25,7 +25,7 @@ const ManageOrderTable = ({ order, index }) => {
   const complet = (id) => {
     const confirm = window.confirm("Are you sure");
     if (confirm) {
-      fetch(`http://localhost:5000/manage/${id}`, {
+      fetch(`https://frozen-brushlands-71944.herokuapp.com/manage/${id}`, {
         method: "PUT",
         headers: {
           authorization: `Berar ${localStorage.getItem("accessToken")}`,

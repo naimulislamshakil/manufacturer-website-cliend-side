@@ -4,7 +4,7 @@ const useProductDetail = (id) => {
   const [service, setService] = useState({});
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    const url = `http://localhost:5000/id_product/${id}`;
+    const url = `https://frozen-brushlands-71944.herokuapp.com/id_product/${id}`;
     fetch(url, {
       method: "GET",
       headers: {

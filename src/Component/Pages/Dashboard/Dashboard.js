@@ -60,7 +60,7 @@ const Dashboard = () => {
               <li>
                 <Link
                   className="w-full btn btn-outline rounded-full mt-3"
-                  to="/dashboard/add_review"
+                  to="/dashboard/add_product"
                 >
                   Add A Product
                 </Link>

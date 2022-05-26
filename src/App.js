@@ -18,8 +18,14 @@ import AllUser from "./Component/Pages/Dashboard/AllUsers";
 import ManageAllOrder from "./Component/Pages/Dashboard/ManageAllOrder";
 import RequierAdmin from "./Component/Shered/RequirAdmin/RequierAdmin";
 import OrderCard from "./Component/Pages/Dashboard/OrderCard";
+import AddProduct from "./Component/Pages/Dashboard/AddProduct";
+import auth from "./firebase.config";
+import { useAuthState } from "react-firebase-hooks/auth";
+import useAdmin from "./Component/Hooks/useAdmin";
 
 function App() {
+  const [user] = useAuthState(auth);
+  const [admin] = useAdmin(user);
   return (
     <div className="max-w-7xl mx-auto">
       <Header></Header>
@@ -67,7 +73,19 @@ function App() {
           ></Route>
           <Route
             path="/dashboard/manage_order"
-            element={<ManageAllOrder />}
+            element={
+              <RequierAdmin>
+                <ManageAllOrder />
+              </RequierAdmin>
+            }
+          ></Route>
+          <Route
+            path="/dashboard/add_product"
+            element={
+              <RequierAdmin>
+                <AddProduct />
+              </RequierAdmin>
+            }
           ></Route>
         </Route>
       </Routes>

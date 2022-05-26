@@ -5,7 +5,7 @@ const AllUsers = () => {
   const [users, setUser] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/admin", {
+    fetch("https://frozen-brushlands-71944.herokuapp.com/admin", {
       method: "GET",
       headers: {
         authorization: `Berar ${localStorage.getItem("accessToken")}`,

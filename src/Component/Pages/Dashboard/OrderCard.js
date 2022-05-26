@@ -5,7 +5,7 @@ const OrderCard = () => {
   const { id } = useParams();
   const [order, setOrder] = useState({});
   useEffect(() => {
-    fetch(`http://localhost:5000/manage/${id}`, {
+    fetch(`https://frozen-brushlands-71944.herokuapp.com/manage/${id}`, {
       method: "GET",
       headers: {
         authorization: `Berar ${localStorage.getItem("accessToken")}`,

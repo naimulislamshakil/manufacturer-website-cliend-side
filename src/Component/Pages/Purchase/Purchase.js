@@ -40,7 +40,7 @@ const Purchase = () => {
     };
 
     if (minimum_order <= quantity <= available_quantity) {
-      fetch("http://localhost:5000/order", {
+      fetch("https://frozen-brushlands-71944.herokuapp.com/order", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(orderDetails),

@@ -6,7 +6,7 @@ const ManageAllOrder = () => {
   const [orders, setOrder] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/order`, {
+    fetch(`https://frozen-brushlands-71944.herokuapp.com/order`, {
       method: "GET",
       headers: {
         authorization: `Berar ${localStorage.getItem("accessToken")}`,

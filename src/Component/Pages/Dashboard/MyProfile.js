@@ -8,7 +8,7 @@ const MyProfile = () => {
   const { email } = user;
   const [info, setInfo] = useState({});
   useEffect(() => {
-    fetch(`http://localhost:5000/onlyuser/${email}`, {
+    fetch(`https://frozen-brushlands-71944.herokuapp.com/onlyuser/${email}`, {
       method: "GET",
       headers: {
         authorization: `Berar ${localStorage.getItem("accessToken")}`,
@@ -34,7 +34,7 @@ const MyProfile = () => {
       url,
     };
 
-    fetch(`http://localhost:5000/onlyuser/${email}`, {
+    fetch(`https://frozen-brushlands-71944.herokuapp.com/onlyuser/${email}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

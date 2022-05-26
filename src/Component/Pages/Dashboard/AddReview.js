@@ -17,7 +17,7 @@ const AddReview = () => {
       text: text,
     };
 
-    fetch("http://localhost:5000/review", {
+    fetch("https://frozen-brushlands-71944.herokuapp.com/review", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(review),

@@ -8,7 +8,7 @@ const OrderDetails = () => {
   const { id } = useParams();
   const [order, setOrder] = useState({});
   useEffect(() => {
-    fetch(`http://localhost:5000/orders/${id}`)
+    fetch(`https://frozen-brushlands-71944.herokuapp.com/orders/${id}`)
       .then((res) => {
         if (res.status === 403) {
           localStorage.removeItem("accessToken");

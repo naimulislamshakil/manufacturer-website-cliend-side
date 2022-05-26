@@ -1,18 +1,18 @@
-import { signOut } from "firebase/auth";
+// import { signOut } from "firebase/auth";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import auth from "../../firebase.config";
+// import { useNavigate } from "react-router-dom";
+// import auth from "../../firebase.config";
 
 const useAdmin = (user) => {
   const [admin, setAdmin] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   useEffect(() => {
     const email = user?.email;
 
     if (email) {
-      fetch(`http://localhost:5000/admin/${email}`, {
+      fetch(`https://frozen-brushlands-71944.herokuapp.com/admin/${email}`, {
         method: "GET",
         headers: {
           authorization: `Berar ${localStorage.getItem("accessToken")}`,

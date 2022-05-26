@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 const UserTable = ({ index, user }) => {
   const { _id, email, role } = user;
   const makeAdmin = () => {
-    fetch(`http://localhost:5000/user_admin/${email}`, {
+    fetch(`https://frozen-brushlands-71944.herokuapp.com/user_admin/${email}`, {
       method: "PUT",
       headers: {
         authorization: `Berar ${localStorage.getItem("accessToken")}`,
@@ -22,7 +22,7 @@ const UserTable = ({ index, user }) => {
   const deleteUser = (id) => {
     const comfirm = window.confirm(`Are you sure delete ${email}`);
     if (comfirm) {
-      fetch(`http://localhost:5000/onlyuser/${id}`, {
+      fetch(`https://frozen-brushlands-71944.herokuapp.com/onlyuser/${id}`, {
         method: "DELETE",
         headers: {
           "content-type": "application/json",

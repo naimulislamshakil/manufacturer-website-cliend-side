@@ -10,7 +10,7 @@ const MyOrder = () => {
 
   useEffect(() => {
     const email = user.email;
-    fetch(`http://localhost:5000/order/${email}`)
+    fetch(`https://frozen-brushlands-71944.herokuapp.com/order/${email}`)
       .then((res) => res.json())
       .then((data) => setOrder(data));
   }, [user]);
@@ -20,7 +20,7 @@ const MyOrder = () => {
     const confirm = window.confirm("Are You Sure To Delete It!");
 
     if (confirm) {
-      const url = `http://localhost:5000/delete/${id}`;
+      const url = `https://frozen-brushlands-71944.herokuapp.com/delete/${id}`;
       fetch(url, {
         method: "DELETE",
       })
