@@ -19,9 +19,6 @@ import ManageAllOrder from "./Component/Pages/Dashboard/ManageAllOrder";
 import RequierAdmin from "./Component/Shered/RequirAdmin/RequierAdmin";
 import OrderCard from "./Component/Pages/Dashboard/OrderCard";
 import AddProduct from "./Component/Pages/Dashboard/AddProduct";
-import auth from "./firebase.config";
-import { useAuthState } from "react-firebase-hooks/auth";
-import useAdmin from "./Component/Hooks/useAdmin";
 import CoustomerProduct from "./Component/Pages/CoustomerProduct/CoustomerProduct";
 import Footer from "./Component/Shered/Footer/Footer";
 import ManageProduct from "./Component/Pages/Dashboard/ManageProduct";
@@ -29,8 +26,6 @@ import Blogs from "./Component/Pages/Blogs/Blogs";
 import PageNotFound from "./Component/Pages/PageNotFound/PageNotFound";
 
 function App() {
-  const [user] = useAuthState(auth);
-  const [admin] = useAdmin(user);
   return (
     <div className="max-w-7xl mx-auto">
       <Header></Header>
