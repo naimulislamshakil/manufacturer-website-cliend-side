@@ -36,6 +36,7 @@ const Purchase = () => {
       number: number,
       status: "unpaid",
       totalPrice: totalPrice,
+      panding: "panding",
     };
 
     if (minimum_order <= quantity <= available_quantity) {

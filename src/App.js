@@ -17,6 +17,7 @@ import OrderDetails from "./Component/Pages/Dashboard/OrderDetails";
 import AllUser from "./Component/Pages/Dashboard/AllUsers";
 import ManageAllOrder from "./Component/Pages/Dashboard/ManageAllOrder";
 import RequierAdmin from "./Component/Shered/RequirAdmin/RequierAdmin";
+import OrderCard from "./Component/Pages/Dashboard/OrderCard";
 
 function App() {
   return (
@@ -53,6 +54,14 @@ function App() {
             element={
               <RequierAdmin>
                 <AllUser />
+              </RequierAdmin>
+            }
+          ></Route>
+          <Route
+            path="/dashboard/order/:id"
+            element={
+              <RequierAdmin>
+                <OrderCard />
               </RequierAdmin>
             }
           ></Route>

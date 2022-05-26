@@ -74,6 +74,17 @@ const MyOrder = () => {
                 )}
               </td>
               <td>
+                {order?.panding === "panding" ? (
+                  <button disabled className="btn btn-outline btn-error">
+                    Panding..
+                  </button>
+                ) : (
+                  <button disabled className="btn btn-outline btn-success">
+                    Complete
+                  </button>
+                )}
+              </td>
+              <td>
                 {order?.status === "unpaid" && (
                   <button className="btn btn-outline btn-success">PAY</button>
                 )}
