@@ -27,7 +27,7 @@ const AllUsers = () => {
             <th className="text-sm font-bold text-center uppercase">NO.</th>
             <th className="text-sm font-bold text-center uppercase">email</th>
             <th className="text-sm font-bold text-center uppercase">
-              make Admin
+              All Users
             </th>
             <th className="text-sm font-bold text-center uppercase">Delete</th>
           </tr>

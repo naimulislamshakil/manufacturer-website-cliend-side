@@ -12,30 +12,30 @@ const UserTable = ({ index, user }) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data.acknowledged) {
+        if (data.matchedCount > 0) {
           window.location.reload(false);
           toast.success(`${email} is make admin.`);
         }
       });
   };
 
-  const deleteUser = () => {
+  const deleteUser = (id) => {
     const comfirm = window.confirm(`Are you sure delete ${email}`);
     if (comfirm) {
-      fetch(`http://localhost:5000/delete/${_id}`, {
+      fetch(`http://localhost:5000/onlyuser/${id}`, {
         method: "DELETE",
         headers: {
+          "content-type": "application/json",
           authorization: `Berar ${localStorage.getItem("accessToken")}`,
         },
       })
         .then((res) => res.json())
-        .then((data) => console.log(data));
-      // .then((data) => {
-      //   if (data.acknowledged) {
-      //     // window.location.reload(false);
-      //     toast.success(`${email} is delete successfull.`);
-      //   }
-      // });
+        .then((data) => {
+          if (data.deletedCount > 0) {
+            toast.success("User is delete successfully.");
+            window.location.reload(false);
+          }
+        });
     }
   };
   return (
@@ -52,7 +52,10 @@ const UserTable = ({ index, user }) => {
         )}
       </td>
       <td className="text-center">
-        <button onClick={deleteUser} className="btn btn-outline btn-error">
+        <button
+          onClick={() => deleteUser(_id)}
+          className="btn btn-outline btn-error"
+        >
           Delete User
         </button>
       </td>

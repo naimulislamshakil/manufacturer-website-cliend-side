@@ -1,12 +1,22 @@
+import { signOut } from "firebase/auth";
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import auth from "../../../firebase.config";
 
 const OrderDetails = () => {
+  const navigate = useNavigate();
   const { id } = useParams();
   const [order, setOrder] = useState({});
   useEffect(() => {
     fetch(`http://localhost:5000/orders/${id}`)
-      .then((res) => res.json())
+      .then((res) => {
+        if (res.status === 403) {
+          localStorage.removeItem("accessToken");
+          signOut(auth);
+          navigate("/");
+        }
+        return res.json();
+      })
       .then((data) => setOrder(data));
   }, [id]);
   const {

@@ -15,6 +15,8 @@ import AddReview from "./Component/Pages/Dashboard/AddReview";
 import MyProfile from "./Component/Pages/Dashboard/MyProfile";
 import OrderDetails from "./Component/Pages/Dashboard/OrderDetails";
 import AllUser from "./Component/Pages/Dashboard/AllUsers";
+import ManageAllOrder from "./Component/Pages/Dashboard/ManageAllOrder";
+import RequierAdmin from "./Component/Shered/RequirAdmin/RequierAdmin";
 
 function App() {
   return (
@@ -46,7 +48,18 @@ function App() {
           <Route path="/dashboard/:id" element={<OrderDetails />}></Route>
           <Route path="/dashboard/add_review" element={<AddReview />}></Route>
           <Route path="/dashboard/my_profile" element={<MyProfile />}></Route>
-          <Route path="/dashboard/all_user" element={<AllUser />}></Route>
+          <Route
+            path="/dashboard/all_user"
+            element={
+              <RequierAdmin>
+                <AllUser />
+              </RequierAdmin>
+            }
+          ></Route>
+          <Route
+            path="/dashboard/manage_order"
+            element={<ManageAllOrder />}
+          ></Route>
         </Route>
       </Routes>
       <ToastContainer />
