@@ -25,6 +25,8 @@ import useAdmin from "./Component/Hooks/useAdmin";
 import CoustomerProduct from "./Component/Pages/CoustomerProduct/CoustomerProduct";
 import Footer from "./Component/Shered/Footer/Footer";
 import ManageProduct from "./Component/Pages/Dashboard/ManageProduct";
+import Blogs from "./Component/Pages/Blogs/Blogs";
+import PageNotFound from "./Component/Pages/PageNotFound/PageNotFound";
 
 function App() {
   const [user] = useAuthState(auth);
@@ -36,6 +38,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/product" element={<CoustomerProduct />} />
+        <Route path="/blogs" element={<Blogs />} />
         <Route path="/register" element={<Register />} />
         <Route path="/contact_us" element={<ContactUs />} />
         <Route
@@ -100,6 +103,7 @@ function App() {
             }
           ></Route>
         </Route>
+        <Route path="*" element={<PageNotFound />}></Route>
       </Routes>
       <Footer></Footer>
       <ToastContainer />
