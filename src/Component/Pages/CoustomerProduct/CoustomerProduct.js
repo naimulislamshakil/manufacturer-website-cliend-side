@@ -1,0 +1,36 @@
+import React from "react";
+import { useQuery } from "react-query";
+import Loading from "../../Shered/Loading/Loading";
+import Coustomer from "./Coustomer";
+
+const CoustomerProduct = () => {
+  const { data: products, isLoading } = useQuery("product", () =>
+    fetch("https://frozen-brushlands-71944.herokuapp.com/products", {
+      method: "GET",
+      headers: {
+        authorization: `Berar ${localStorage.getItem("accessToken")}`,
+      },
+    }).then((res) => res.json())
+  );
+
+  if (isLoading) {
+    return <Loading></Loading>;
+  }
+  return (
+    <div>
+      <div className="divider"></div>
+      <div className="text-center font-bold text-accent text-2xl">
+        Our Populler Products
+      </div>
+      <div className="divider"></div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 my-5">
+        {products.length > 0 &&
+          products.map((product) => (
+            <Coustomer key={product._id} product={product}></Coustomer>
+          ))}
+      </div>
+    </div>
+  );
+};
+
+export default CoustomerProduct;

@@ -27,6 +27,11 @@ const Header = () => {
           ContactUs
         </Link>
       </li>
+      <li>
+        <Link className="font-bold hover:bg-primary" to="/product">
+          All Product
+        </Link>
+      </li>
       {user && (
         <li>
           <Link to="/dashboard" className="font-bold hover:bg-primary">

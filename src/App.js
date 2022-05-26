@@ -22,6 +22,8 @@ import AddProduct from "./Component/Pages/Dashboard/AddProduct";
 import auth from "./firebase.config";
 import { useAuthState } from "react-firebase-hooks/auth";
 import useAdmin from "./Component/Hooks/useAdmin";
+import CoustomerProduct from "./Component/Pages/CoustomerProduct/CoustomerProduct";
+import Footer from "./Component/Shered/Footer/Footer";
 
 function App() {
   const [user] = useAuthState(auth);
@@ -32,6 +34,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/product" element={<CoustomerProduct />} />
         <Route path="/register" element={<Register />} />
         <Route path="/contact_us" element={<ContactUs />} />
         <Route
@@ -89,6 +92,7 @@ function App() {
           ></Route>
         </Route>
       </Routes>
+      <Footer></Footer>
       <ToastContainer />
     </div>
   );
