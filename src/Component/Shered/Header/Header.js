@@ -22,14 +22,15 @@ const Header = () => {
           Home
         </Link>
       </li>
-      <li>
-        <Link className="font-bold hover:bg-primary" to="/contact_us">
-          ContactUs
-        </Link>
-      </li>
+
       <li>
         <Link className="font-bold hover:bg-primary" to="/product">
           All Product
+        </Link>
+      </li>
+      <li>
+        <Link className="font-bold hover:bg-primary" to="/my_portfolio">
+          My Portfolio
         </Link>
       </li>
       <li>
@@ -37,6 +38,7 @@ const Header = () => {
           Blogs
         </Link>
       </li>
+
       {user && (
         <li>
           <Link to="/dashboard" className="font-bold hover:bg-primary">
@@ -44,6 +46,11 @@ const Header = () => {
           </Link>
         </li>
       )}
+      <li>
+        <Link className="font-bold hover:bg-primary" to="/contact_us">
+          ContactUs
+        </Link>
+      </li>
       {user ? (
         <li>
           <button className="font-bold hover:bg-primary" onClick={logout}>

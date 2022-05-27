@@ -24,6 +24,8 @@ import Footer from "./Component/Shered/Footer/Footer";
 import ManageProduct from "./Component/Pages/Dashboard/ManageProduct";
 import Blogs from "./Component/Pages/Blogs/Blogs";
 import PageNotFound from "./Component/Pages/PageNotFound/PageNotFound";
+import MyPortfolio from "./Component/Pages/MyPortfolio/MyPortfolio";
+import Payment from "./Component/Pages/Dashboard/Payment";
 
 function App() {
   return (
@@ -33,6 +35,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/product" element={<CoustomerProduct />} />
+        <Route path="/my_portfolio" element={<MyPortfolio />} />
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/register" element={<Register />} />
         <Route path="/contact_us" element={<ContactUs />} />
@@ -57,6 +60,7 @@ function App() {
           <Route path="/dashboard/:id" element={<OrderDetails />}></Route>
           <Route path="/dashboard/add_review" element={<AddReview />}></Route>
           <Route path="/dashboard/my_profile" element={<MyProfile />}></Route>
+          <Route path="/dashboard/payment/:id" element={<Payment />}></Route>
           <Route
             path="/dashboard/all_user"
             element={

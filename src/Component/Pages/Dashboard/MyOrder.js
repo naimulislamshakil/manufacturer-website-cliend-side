@@ -86,7 +86,12 @@ const MyOrder = () => {
               </td>
               <td>
                 {order?.status === "unpaid" && (
-                  <button className="btn btn-outline btn-success">PAY</button>
+                  <Link
+                    to={`/dashboard/payment/${order._id}`}
+                    className="btn btn-outline btn-success"
+                  >
+                    PAY
+                  </Link>
                 )}
               </td>
             </tr>
